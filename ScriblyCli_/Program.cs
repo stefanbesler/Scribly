@@ -1,41 +1,41 @@
 ﻿using SkiaSharp;
 
-var bitmap = new SKBitmap(800,600);
+var bitmap = new SKBitmap(800, 600);
 Console.WriteLine("Type something (press Esc to exist):");
 
 using (var canvas = new SKCanvas(bitmap))
 {
 
-	while (true)
-	{
-		var keyInfo = Console.ReadKey(intercept: true);
+    while (true)
+    {
+        var keyInfo = Console.ReadKey(intercept: true);
 
-		if (keyInfo.Key == ConsoleKey.Escape)
-			break;
+        if (keyInfo.Key == ConsoleKey.Escape)
+            break;
 
         canvas.Clear(SKColors.White);
         using (var paint = new SKPaint())
-		{
-			paint.TextSize = 600;
-			paint.Color = SKColors.Black;
-			paint.IsAntialias = true;
+        {
+            paint.TextSize = 600;
+            paint.Color = SKColors.Black;
+            paint.IsAntialias = true;
 
-			var path = paint.GetTextPath(keyInfo.KeyChar.ToString(), 0, 500);
+            var path = paint.GetTextPath(keyInfo.KeyChar.ToString(), 0, 500);
 
             canvas.DrawText(keyInfo.KeyChar.ToString(), 0, 500, paint);
 
-            
-            var it = path.CreateIterator(false);
-			var points = new Span<SKPoint>(new SKPoint[4]);
-			SKPathVerb verb;
-            while ((verb = it.Next(points)) != SKPathVerb.Done)
-			{
-				if(verb == SKPathVerb.Move)
-				{
 
-				}
-				else if(verb == SKPathVerb.Line)
-				{
+            var it = path.CreateIterator(false);
+            var points = new Span<SKPoint>(new SKPoint[4]);
+            SKPathVerb verb;
+            while ((verb = it.Next(points)) != SKPathVerb.Done)
+            {
+                if (verb == SKPathVerb.Move)
+                {
+
+                }
+                else if (verb == SKPathVerb.Line)
+                {
                     paint.Color = SKColors.Red;
                     paint.StrokeWidth = 2;
                     canvas.DrawPoint(points[0], SKColors.Red);
