@@ -43,39 +43,39 @@ using (var canvas = new SKCanvas(bitmap))
                     canvas.DrawLine(points[0], points[1], paint);
                 }
                 else if (verb == SKPathVerb.Quad)
-				{
+                {
                     canvas.DrawPoint(points[0], SKColors.Red);
                     canvas.DrawPoint(points[1], SKColors.Green);
                     canvas.DrawPoint(points[2], SKColors.Red);
 
                     paint.Color = SKColors.Gray;
-					paint.StrokeWidth = 1;
+                    paint.StrokeWidth = 1;
                     canvas.DrawLine(points[0], points[1], paint);
                     canvas.DrawLine(points[2], points[1], paint);
                 }
                 else if (verb == SKPathVerb.Cubic)
                 {
-                    
+
                 }
             }
 
-			foreach(var p in points)
-			{
+            foreach (var p in points)
+            {
                 canvas.DrawPoint(p, SKColors.Red);
             }
         }
 
 
 
-		using (var image = SKImage.FromBitmap(bitmap))
+        using (var image = SKImage.FromBitmap(bitmap))
         using (var data = image.Encode(SKEncodedImageFormat.Png, 90))
-		using (var stream = File.OpenWrite("output.png"))
+        using (var stream = File.OpenWrite("output.png"))
         {
-			var pixmap = image.PeekPixels();
+            var pixmap = image.PeekPixels();
 
-			data.SaveTo(stream);
-		}
-	}
+            data.SaveTo(stream);
+        }
+    }
 }
 
 
