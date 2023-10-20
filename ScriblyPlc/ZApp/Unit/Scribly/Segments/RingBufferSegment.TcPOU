@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="RingBufferSegment" Id="{19437d8e-5b52-44e7-bb3e-3fc2faa80abb}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK RingBufferSegment EXTENDS ZCore.RingBuffer
+VAR
+  _dataPtr : POINTER TO Segment;  
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{53ce01aa-631b-496b-974c-cbdc95385e53}">
+      <Declaration><![CDATA[/// Initializes the RingBuffer at construction time of the object by providing the bufferSize.
+/// It also inidializes the pointers of head and tail with an internally stored variable.
+METHOD FB_init : BOOL
+VAR_INPUT
+  bInitRetains : BOOL; //< if TRUE, the retain variables are initialized (warm start / cold start)
+  bInCopyCode : BOOL; //< if TRUE, the instance afterwards gets moved into the copy code (online change)
+  bufferSize : DINT; //< size of the **managable** buffer. The actual databuffer needs to be one element larger than bufferSize, i.e. data : ARRAY[0..bufferSize] OF ???
+  startPtr : POINTER TO DINT;
+  endPtr : POINTER TO DINT;
+  dataPtr : POINTER TO Segment;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[SetLogicPtrs(startPtr, endPtr);
+_dataPtr := dataPtr;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ItemAt" Id="{874d6a65-a4e2-454f-98e5-76345c6913de}">
+      <Declaration><![CDATA[METHOD ItemAt : REFERENCE TO Segment
+VAR_INPUT
+  pos : DINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ItemAt := _dataPtr[IndexOfItem(pos)];]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

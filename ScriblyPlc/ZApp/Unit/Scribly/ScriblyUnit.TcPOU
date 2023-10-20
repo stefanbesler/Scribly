@@ -17,6 +17,11 @@ VAR
   _statemachine : ZApplication.UnitStateMachine;
 
   _observeTimer : ZAux.Timer;
+  _segments : RingBufferSegment(
+                10, 
+                ADR(ZGlobal.Com.Unit.Scribly.Subscribe.Segments.Start),
+                ADR(ZGlobal.Com.Unit.Scribly.Subscribe.Segments.End),
+                ADR(ZGlobal.Com.Unit.Scribly.Subscribe.Segments.Data));        
 END_VAR
 
 {attribute 'ZId' := 'f607484c-b594-4144-a307-86b8991e3218'}]]></Declaration>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="SegmentType" Id="{f08d08a4-ada9-438a-a438-c698fd156174}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE SegmentType :
+(
+	Location := 0,
+  LinePoints,
+  CatmulRomPoints
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

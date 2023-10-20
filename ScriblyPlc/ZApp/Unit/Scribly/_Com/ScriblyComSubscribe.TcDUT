@@ -6,7 +6,7 @@ STRUCT
   Request : ScriblyComRequest; // contains booleans that are used to start a specific sequence.
   Equipment : ScriblyComSubscribeEquipment;  // structs for equipment objects which are used by the bridges
   
-  
+  Segments : ScriblyComSubscribeSegments;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

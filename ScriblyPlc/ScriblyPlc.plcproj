@@ -66,6 +66,15 @@
     <Compile Include="ZApp\Unit\Scribly\ScriblyUnitProgram.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ZApp\Unit\Scribly\Segments\RingBufferSegment.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\Segments\Segment.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\Segments\SegmentType.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyCom.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +94,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComSubscribeEquipment.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComSubscribeSegments.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ZApp\Unit\Scribly\_DataTypes\ScriblyState.TcDUT">
@@ -170,6 +182,7 @@
     <Folder Include="ZApp" />
     <Folder Include="ZApp\Unit" />
     <Folder Include="ZApp\Unit\Scribly" />
+    <Folder Include="ZApp\Unit\Scribly\Segments" />
     <Folder Include="ZApp\Unit\Scribly\_Com" />
     <Folder Include="ZApp\Unit\Scribly\_Data" />
     <Folder Include="ZApp\Unit\Scribly\_DataTypes" />
@@ -183,6 +196,10 @@
     </LibraryReference>
   </ItemGroup>
   <ItemGroup>
+    <PlaceholderReference Include="Struckig">
+      <DefaultResolution>Struckig, 0.9.0.0 (Stefan Besler)</DefaultResolution>
+      <Namespace>Struckig</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="ZApplication">
       <DefaultResolution>ZApplication, 1.3.18.0 (Zeugwerk GmbH)</DefaultResolution>
       <Namespace>ZApplication</Namespace>
@@ -205,6 +222,9 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
+    <PlaceholderResolution Include="Struckig">
+      <Resolution>Struckig, 0.9.0.0 (Stefan Besler)</Resolution>
+    </PlaceholderResolution>
     <PlaceholderResolution Include="ZApplication">
       <Resolution>ZApplication, 1.3.18.0 (Zeugwerk GmbH)</Resolution>
     </PlaceholderResolution>

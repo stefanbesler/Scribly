@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="Segment" Id="{a0836e09-522f-43fb-89eb-f1ae26032a4d}">
+    <Declaration><![CDATA[TYPE Segment :
+STRUCT
+  Verb : SegmentType;
+  Points : ARRAY[0..7] OF ZCore.Vector4;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
