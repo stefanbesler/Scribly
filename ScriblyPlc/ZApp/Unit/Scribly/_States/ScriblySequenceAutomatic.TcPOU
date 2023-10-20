@@ -58,6 +58,13 @@ REPEAT
       IF _step.OnEntry()
       THEN
         Milestone('Waiting for segment');
+        
+        _otg.MaxJerk[0] := 100000;
+        _otg.MaxJerk[1] := 100000;         
+        _otg.MaxAcceleration[0] := 10000;
+        _otg.MaxAcceleration[1] := 10000; 
+        _otg.MaxVelocity[0] := 200;
+        _otg.MaxVelocity[1] := 200;            
       END_IF
 
       IF Halting
@@ -109,11 +116,12 @@ REPEAT
     (* -------------------------------------------------------------------------------------------------------------------------------- *)
       IF _step.OnEntry()
       THEN
-        _actuator.Pen.UpAsync(THIS^);
+      //  _actuator.Pen.UpAsync(THIS^);
         _segments.PopFirstItem();
       END_IF
 
-      Await(_actuator.Pen, ScriblyStep.AutomaticWaitSegment);
+      //Await(_actuator.Pen, ScriblyStep.AutomaticWaitSegment);
+      _step.SetNext(ScriblyStep.AutomaticWaitSegment);
       
     (* -------------------------------------------------------------------------------------------------------------------------------- *)
     ScriblyStep.AutomaticDrawLine:
@@ -129,13 +137,7 @@ REPEAT
         _otg.CurrentPosition[0] := _segment.Points[0].X;
         _otg.CurrentPosition[1] := _segment.Points[0].Y;
         _otg.Discretization := Struckig.DiscretizationType.Discrete;
-        _otg.EnableAutoPropagate := TRUE;
-        _otg.MaxJerk[0] := 100000;
-        _otg.MaxJerk[1] := 100000;         
-        _otg.MaxAcceleration[0] := 10000;
-        _otg.MaxAcceleration[1] := 10000; 
-        _otg.MaxVelocity[0] := 50;
-        _otg.MaxVelocity[1] := 50;      
+        _otg.EnableAutoPropagate := TRUE;  
         _otg.Synchronization := Struckig.SynchronizationType.Phase;
         _otg.TargetPosition[0] := _segment.Points[1].X;
         _otg.TargetPosition[1] := _segment.Points[1].Y;        
@@ -165,12 +167,6 @@ REPEAT
       _otg.ControlInterface := Struckig.ControlInterfaceType.Position;
       _otg.Discretization := Struckig.DiscretizationType.Discrete;
       _otg.EnableAutoPropagate := TRUE;
-      _otg.MaxJerk[0] := 100000;
-      _otg.MaxJerk[1] := 100000;         
-      _otg.MaxAcceleration[0] := 10000;
-      _otg.MaxAcceleration[1] := 10000; 
-      _otg.MaxVelocity[0] := 50;
-      _otg.MaxVelocity[1] := 50; 
       _otg.Synchronization := Struckig.SynchronizationType.Phase;    
       _otg.CurrentAcceleration[0] := 0;
       _otg.CurrentAcceleration[1] := 0;        
@@ -183,11 +179,12 @@ REPEAT
       _spline.Clear();
       
       // todo: make this more dynamic ...
-      FOR i:=1 TO 8
+      FOR i:=0 TO 4
       DO 
-        _spline.Append3((i-1) / INT_TO_LREAL(7), _segment.Points[i].X, _segment.Points[i].Y, _segment.Points[i].Z);
+        _spline.Append(((i) / INT_TO_LREAL(4)), ADR(_segment.Points[i]));
       END_FOR
 
+      _spline.Interpolate(0,0,0,0);
       _splineIndex := 0;
       _step.SetNext(ScriblyStep.AutomaticDrawCatmulRomDrawSpline);
       
@@ -212,7 +209,7 @@ REPEAT
         AbortErrorId(_otg.ErrorCode(), 'Trajectory Error');
       ELSIF _otg.State = Struckig.TrajectoryState.Idle
       THEN
-        IF _splineIndex < 7
+        IF _splineIndex < 4
         THEN
           _splineIndex := _splineIndex + 1;
           _step.RepeatStep();

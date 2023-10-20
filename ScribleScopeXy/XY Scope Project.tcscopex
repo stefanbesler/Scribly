@@ -226,7 +226,7 @@
       <AutoStart>true</AutoStart>
       <Comment />
       <ConnectedTimeMemberGuid>00000000-0000-0000-0000-000000000000</ConnectedTimeMemberGuid>
-      <DefaultDisplayWidth>100000000</DefaultDisplayWidth>
+      <DefaultDisplayWidth>600000000</DefaultDisplayWidth>
       <DisplayColor>-986896</DisplayColor>
       <DurationLength>0</DurationLength>
       <ForeColor>-16777216</ForeColor>
@@ -408,10 +408,10 @@
                       <Guid>75e5cfae-091b-48a5-b549-a49cecdec27f</Guid>
                       <LineWidth>1</LineWidth>
                       <MarkColor>-16744448</MarkColor>
-                      <MarkSize>2</MarkSize>
+                      <MarkSize>5</MarkSize>
                       <MarkState>Auto</MarkState>
                       <Name>Series Style</Name>
-                      <SeriesType>Line</SeriesType>
+                      <SeriesType>MarksOnly</SeriesType>
                       <SortPriority>100</SortPriority>
                       <Title>SeriesStyle_43</Title>
                     </SeriesStyle>
@@ -541,6 +541,15 @@
           <Title>ChartStyle_29</Title>
           <ToolTipEnabled>true</ToolTipEnabled>
         </ChartStyle>
+        <MarkerContainer AssemblyName="TwinCAT.Measurement.Scope.API.Model">
+          <Comment />
+          <DisplayColor>Black</DisplayColor>
+          <Guid>e8b58f5b-d3a9-419f-9f6a-9963020cefc0</Guid>
+          <Name>Marker Container (1)</Name>
+          <SortPriority>100</SortPriority>
+          <SubMember />
+          <Title>MarkerContainer_412</Title>
+        </MarkerContainer>
       </SubMember>
       <TimeOffset>0</TimeOffset>
       <TimeRefreshMode>Explicit</TimeRefreshMode>

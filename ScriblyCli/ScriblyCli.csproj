@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Beckhoff.TwinCAT.Ads" Version="6.1.86" />
     <PackageReference Include="SkiaSharp" Version="2.88.6" />
   </ItemGroup>
 

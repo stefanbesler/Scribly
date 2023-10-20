@@ -39,7 +39,7 @@
               <Children>
                 <Node>
                   <Title>ProbeX, ProbeY</Title>
-                  <Expanded>True</Expanded>
+                  <Expanded>False</Expanded>
                   <FileName></FileName>
                   <Children>
                     <Node>

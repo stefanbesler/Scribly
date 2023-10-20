@@ -995,7 +995,7 @@ External Setpoint Generation:
 		</System>
 		<Plc>
 			<Project GUID="{CE6BB78B-F527-4053-9B48-2251770AD0CF}" Name="ScriblyPlc" PrjFilePath="ScriblyPlc\ScriblyPlc.plcproj" TmcFilePath="ScriblyPlc\ScriblyPlc.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{060692A3-410C-31A0-F1B5-6ED08C22D157}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{1B1ED0D8-047F-B00C-D279-1B9A1B7836AE}">
 					<Name>ScriblyPlc Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
