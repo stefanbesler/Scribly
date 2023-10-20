@@ -16,6 +16,14 @@ TYPE ScriblyStep :
   ,StopEnd
 
   ,AutomaticBegin
+  ,AutomaticWaitSegment
+  ,AutomaticMoveToSegmentStart
+  ,AutomaticMovePenDown
+  ,AutomaticDraw
+  ,AutomaticMovePenUp
+  ,AutomaticDrawLine
+  ,AutomaticDrawCatmulRomDrawSplineBegin
+  ,AutomaticDrawCatmulRomDrawSpline
   ,AutomaticEnd
   
   ,GoHomeBegin

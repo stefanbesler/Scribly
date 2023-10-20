@@ -84,7 +84,10 @@ UNTIL _step.IsNotRepeatable() OR_ELSE NOT Busy END_REPEAT]]></ST>
       <Declaration><![CDATA[METHOD FINAL LoadDefaultData]]></Declaration>
       <Implementation>
         <ST><![CDATA[
-{attribute '__ZwPlcUnitLoadDefaultData__'} // Do not remove this attribute! It is used for code generation.]]></ST>
+{attribute '__ZwPlcUnitLoadDefaultData__'} // Do not remove this attribute! It is used for code generation.
+ZGlobal.Data.Machine.Scribly.Highspeed := 100;
+ZGlobal.Data.Machine.Scribly.Slowspeed := 10;
+]]></ST>
       </Implementation>
     </Method>
   </POU>

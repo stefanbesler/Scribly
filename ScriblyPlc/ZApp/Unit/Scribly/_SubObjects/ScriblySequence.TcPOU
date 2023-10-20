@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="ScriblySequence" Id="{7da3ae00-5a10-41f0-8437-3e2ab3d8f80e}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK ScriblySequence EXTENDS ZApplication.Sequence
@@ -10,7 +10,8 @@ VAR
   _fieldbus : REFERENCE TO ScriblyFieldbus;
   _axis : REFERENCE TO ScriblyAxis;
   _data : REFERENCE TO ScriblyDataRef;
-  _unit : REFERENCE TO ScriblyLinkedUnit;  
+  _unit : REFERENCE TO ScriblyLinkedUnit;
+  _segments : REFERENCE TO RingBufferSegment;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -33,7 +34,9 @@ _fieldbus REF= unit._equipment.Fieldbus;
 _axis REF= unit._equipment.Axis;
 _unit REF= unit._equipment.Unit;
 _data REF= unit._data;
-_loggerDiagnostics.SetLogger(unit._logger);]]></ST>
+_loggerDiagnostics.SetLogger(unit._logger);
+
+_segments REF= unit._segments;]]></ST>
       </Implementation>
     </Method>
     <Method Name="StepDecoded" Id="{46332cdb-fcd0-49f5-8fb6-4ae8e2cff827}">

@@ -34,7 +34,7 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[ItemAt := _dataPtr[IndexOfItem(pos)];]]></ST>
+        <ST><![CDATA[ItemAt REF= _dataPtr[IndexOfItem(pos)];]]></ST>
       </Implementation>
     </Method>
   </POU>

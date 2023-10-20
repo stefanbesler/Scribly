@@ -241,6 +241,11 @@
       <Resolution>ZPlatform, 1.3.18.0 (Zeugwerk GmbH)</Resolution>
     </PlaceholderResolution>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ScriblyPlc.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
