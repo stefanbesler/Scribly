@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="ScriblySequenceAutomatic" Id="{67b79802-f6c4-4a4c-97cf-95bcdb2998d3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ScriblySequenceAutomatic EXTENDS ScriblySequence IMPLEMENTS ZCore.ISequence
+VAR
+  _step : ZCore.Step(ScriblyStep.AutomaticBegin, ScriblyStep.AutomaticEnd);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT Busy THEN
+  RETURN;
+END_IF
+
+IF OnStart(_step) THEN
+  ; // init custom sequence variables here ...
+END_IF
+
+IF OnStop() THEN
+  RETURN; // external stop was triggered
+END_IF
+
+IF OnHalt() THEN
+  ; // Halting := TRUE; // Uncomment to acknowledge that the sequence is halting
+END_IF
+
+REPEAT
+  LogStep();
+
+  CASE _step.Index OF
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    ScriblyStep.AutomaticBegin:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN
+        ;
+      END_IF
+
+      // Await(obj1:=, nextStep:=ScriblyStep.AutomaticEnd);
+      _step.SetNext(ScriblyStep.AutomaticEnd);
+    
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    ScriblyStep.AutomaticEnd:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      SetBusy(FALSE);
+  
+  ELSE
+    Abort('sequence contains unhandled step');
+  END_CASE
+UNTIL _step.IsNotRepeatable() OR_ELSE NOT Busy END_REPEAT]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

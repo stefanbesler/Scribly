@@ -57,6 +57,93 @@
     <Compile Include="ZApp\Data\_DataTypes\ZDataRecipe.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ZApp\Unit\Scribly\IScribly.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\ScriblyUnit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\ScriblyUnitProgram.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyCom.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComPublish.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComPublishEquipment.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComRef.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComRequest.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComSubscribe.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Com\ScriblyComSubscribeEquipment.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_DataTypes\ScriblyState.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_DataTypes\ScriblyStep.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Data\ScriblyDataCalibration.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Data\ScriblyDataConfig.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Data\ScriblyDataMachine.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Data\ScriblyDataRef.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyActuator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyAxis.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyEquipment.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyFieldbus.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyIo.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyLinkedUnit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_States\ScriblySequenceAutomatic.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_States\ScriblySequenceBoot.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_States\ScriblySequenceFaultReaction.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_States\ScriblySequenceGoHome.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_States\ScriblySequenceStop.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_SubObjects\ScriblyContainer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_SubObjects\ScriblySequence.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ZApp\ZGlobal.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -79,6 +166,13 @@
     <Folder Include="ZApp\Data\_DataTypes" />
     <Folder Include="ZApp" />
     <Folder Include="ZApp\Unit" />
+    <Folder Include="ZApp\Unit\Scribly" />
+    <Folder Include="ZApp\Unit\Scribly\_Com" />
+    <Folder Include="ZApp\Unit\Scribly\_Data" />
+    <Folder Include="ZApp\Unit\Scribly\_DataTypes" />
+    <Folder Include="ZApp\Unit\Scribly\_Equipment" />
+    <Folder Include="ZApp\Unit\Scribly\_States" />
+    <Folder Include="ZApp\Unit\Scribly\_SubObjects" />
   </ItemGroup>
   <ItemGroup>
     <LibraryReference Include="Tc3_Module,3.3.21.0,Beckhoff Automation GmbH">
@@ -127,8 +221,8 @@
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-  <Data>
-    <o xml:space="preserve" t="OptionKey">
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
         <v>{40450F57-0AA3-4216-96F3-5444ECB29763}</v>
@@ -149,13 +243,13 @@
       </d>
       <d n="Values" t="Hashtable" />
     </o>
-  </Data>
-  <TypeList>
-    <Type n="Hashtable">System.Collections.Hashtable</Type>
-    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-    <Type n="String">System.String</Type>
-  </TypeList>
-</XmlArchive>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>

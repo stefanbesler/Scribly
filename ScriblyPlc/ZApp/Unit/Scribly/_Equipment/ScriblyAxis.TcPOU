@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="ScriblyAxis" Id="{0d1c9652-e643-42c3-9ed6-1aee060638b4}" SpecialFunc="None">
+    <Declaration><![CDATA[/// This function block is a container for all axis objects that are used by this unit.
+/// The parent of all objects can be directly transfered in their constructor (this is only relevant for equipment objects
+/// that have to be managed (e.g. [DebouncedInput](xref:ZEquipment.DebouncedInput), [Light](xref:ZEquipment.Light), ...).
+FUNCTION_BLOCK ScriblyAxis EXTENDS ScriblyContainer
+VAR
+  {attribute 'hide'}
+  _axisbridge : ZApplication.AxisBridge(_parent);
+END_VAR
+VAR_INPUT
+
+{attribute '__ZwPlcUnitEquipmentDeclaration__'} // Do not remove this attribute! It is used for code generation.
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF _isInitialized
+THEN
+  RETURN;
+END_IF
+
+  _axisbridge.SetLogger(_parent._logger);
+
+{attribute '__ZwPlcUnitEquipmentImplementation__'} // Do not remove this attribute! It is used for code generation.]]>
+
+_isInitialized := TRUE;</ST></Implementation>
+  </POU>
+</TcPlcObject>

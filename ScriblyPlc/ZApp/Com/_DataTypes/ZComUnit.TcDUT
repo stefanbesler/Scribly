@@ -3,6 +3,12 @@
   <DUT Name="ZComUnit" Id="{c82bcab2-9169-40c4-8c12-27bfd05a7c57}">
     <Declaration><![CDATA[TYPE ZComUnit :
 STRUCT
+{region "Scribly"}
+{IF NOT (defined (Scribly_disabled))}
+  Scribly : ScriblyCom;
+  {attribute 'ZId' := '61e5b130-0fef-4d8b-85dd-afb1efcde47c'}
+{END_IF}
+{endregion}
 {attribute '__ZwPlcApplicationComUnitDeclaration__'} // Do not remove this attribute! It is used for code generation.
 END_STRUCT
 END_TYPE

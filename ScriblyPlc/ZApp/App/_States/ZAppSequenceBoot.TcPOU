@@ -66,6 +66,16 @@ UNTIL _step.IsNotRepeatable() OR_ELSE NOT Busy END_REPEAT]]></ST>
       <Declaration><![CDATA[METHOD FINAL LoadDefaultConfigData]]></Declaration>
       <Implementation>
         <ST><![CDATA[
+{region "Scribly"}
+  {IF NOT (defined (Scribly_disabled))}
+  ZGlobal.Data.Config.Scribly.Simulated := TRUE;
+  {region "UserInitCode"}
+  // put your individual init code for this unit here
+  {endregion}
+  {END_IF}
+  {attribute 'ZId' := '61e5b130-0fef-4d8b-85dd-afb1efcde47c'}
+{endregion}
+
 {attribute '__ZwPlcUnitLoadDefaultConfigData__'} // Do not remove this attribute! It is used for code generation.
 ]]></ST>
       </Implementation>

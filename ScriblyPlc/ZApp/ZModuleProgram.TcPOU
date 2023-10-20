@@ -17,6 +17,19 @@ VAR
   {attribute 'ZId' := ''}
 {endregion}  
 {attribute '__ZwPlcApplicationModuleProgramDeclaration__'} // Do not remove this attribute! It is used for code generation.
+{region "Scribly"}
+{undefine RunInSeparateProgram}
+{IF NOT (defined (Scribly_disabled)) AND NOT (defined (RunInSeparateProgram))}
+  Scribly : ScriblyUnit(name := 'Scribly', // name of the unit (for logging)
+					  parent := App, // caller of the Unit's cyclic method. If the Unit runs in its own context use 0
+						configdata := ZGlobal.Data.Config.Scribly,
+						machinedata := ZGlobal.Data.Machine.Scribly,
+						calibrationdata := ZGlobal.Data.Calibration.Scribly,
+						com := ZGlobal.Com.Unit.Scribly);
+  {attribute 'section' := '__ZwPlcUnitProgramDeclaration__'}
+  {attribute 'ZId' := '61e5b130-0fef-4d8b-85dd-afb1efcde47c'}
+{END_IF}
+{endregion}
 {attribute '__ZwPlcUnitProgramDeclaration__'} // Do not remove this attribute! It is used for code generation.
 END_VAR
 ]]></Declaration>
