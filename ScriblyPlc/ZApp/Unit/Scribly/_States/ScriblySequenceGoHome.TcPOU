@@ -43,8 +43,6 @@ REPEAT
       IF _step.OnEntry()
       THEN
         _actuator.Pen.UpAsync(THIS^);
-        _axis.AxisX.StopAsync(THIS^);
-        _axis.AxisY.StopAsync(THIS^);
 			END_IF
       
       Await(_actuator.Pen, nextStep:=ScriblyStep.GoHomeReferenceXY);
