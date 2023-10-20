@@ -9,7 +9,7 @@
           "version": "1.0.0.0",
           "distributor-name": null,
           "name": "ScriblyPlc",
-          "title": null,
+          "title": "ScriblyPlc",
           "type": "Application",
           "frameworks": {
             "zeugwerk": {
@@ -37,6 +37,51 @@
               "target": "TC3.1",
               "configuration": "Release",
               "distributor-name": "Stefan Besler"
+            },
+            {
+              "version": "1.3.18.0",
+              "repository": "bot",
+              "name": "ZApplication",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Snapshot",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.3.18.0",
+              "repository": "bot",
+              "name": "ZAux",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Snapshot",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.3.18.0",
+              "repository": "bot",
+              "name": "ZCore",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Snapshot",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.3.18.0",
+              "repository": "bot",
+              "name": "ZEquipment",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Snapshot",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.3.18.0",
+              "repository": "bot",
+              "name": "ZPlatform",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Snapshot",
+              "distributor-name": "Zeugwerk GmbH"
             }
           ],
           "references": {
