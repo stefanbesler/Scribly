@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0.x",
+  "displayname": "",
+  "tc_versions": [
+    "TC3.1.4024.22"
+  ],
+  "platforms": [
+    "tc3"
+  ]
+}
