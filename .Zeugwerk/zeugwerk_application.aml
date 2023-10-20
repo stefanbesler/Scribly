@@ -34,7 +34,195 @@
               <RoleRequirements RefBaseRoleClassPath="ZRoleClassLib/ZObject" />
             </InternalElement>
           </InternalElement>
-          <InternalElement Name="Equipment" ID="5bfc2cf1-e375-4396-ba98-c572a915a9bf" />
+          <InternalElement Name="Equipment" ID="5bfc2cf1-e375-4396-ba98-c572a915a9bf">
+            <InternalElement Name="AxisY" ID="787e5d02-9d93-4b03-8235-ee23b1a291ad" RefBaseSystemUnitPath="ZObjectLib/Unit/Equipment/ZEquipmentAxis">
+              <Attribute Name="DisplayName" AttributeDataType="xs:string">
+                <Value>AxisY</Value>
+              </Attribute>
+              <Attribute Name="Logger" AttributeDataType="xs:string" RefAttributeType="ZAttributeTypeLib/ZObjectRelation">
+                <Value>ZObjectLib/Common/Logger</Value>
+              </Attribute>
+              <Attribute Name="Simulated" AttributeDataType="xs:string">
+                <Value>Indeterminate</Value>
+              </Attribute>
+              <Attribute Name="SetLogger" AttributeDataType="xs:boolean">
+                <Description>Shall the Unit Logger be added to the I/O.</Description>
+                <DefaultValue>true</DefaultValue>
+              </Attribute>
+              <Attribute Name="Type" AttributeDataType="xs:string">
+                <Description>PLC Type of the Axis</Description>
+                <Value>AxisPlcOpenMc</Value>
+              </Attribute>
+              <Attribute Name="AxisTest" AttributeDataType="xs:boolean">
+                <Description>Should the Axis be added to the axisbridge for Axis Test purposes on an HMI</Description>
+                <DefaultValue>false</DefaultValue>
+                <Value>True</Value>
+              </Attribute>
+              <Attribute Name="AxisPlcOpenMc" AttributeDataType="xs:string" />
+              <Attribute Name="AxisStepperEL7031" AttributeDataType="xs:string">
+                <Attribute Name="EthercatSlave" AttributeDataType="" RefAttributeType="">
+                  <Description>Type description of the coresponding mirror object 'AxisStepperEL7031.EthercatSlave'</Description>
+                  <Value></Value>
+                  <Attribute Name="RefBaseClass" AttributeDataType="xs:string" RefAttributeType="ZAttributeTypeLib/ZObjectRelation">
+                    <Description>Objekttype als CAEX Pfad, welcher als Interface auf ein anderes Objekt in Form eines Mirrorobjektes für die Verwendung initialisiert werden kann.</Description>
+                    <Value>ZObjectLib/Unit/Equipment/ZEquipmentFieldbusDevice</Value>
+                  </Attribute>
+                  <Attribute Name="Type" AttributeDataType="xs:string">
+                    <Value>EthercatSlave</Value>
+                  </Attribute>
+                </Attribute>
+              </Attribute>
+              <RoleRequirements RefBaseRoleClassPath="ZRoleClassLib/ZObject" />
+              <RoleRequirements RefBaseRoleClassPath="ZRoleClassLib/ZEquipment" />
+            </InternalElement>
+            <InternalElement Name="AxisX" ID="a9303431-20fb-4f90-9643-84006bcd2555" RefBaseSystemUnitPath="ZObjectLib/Unit/Equipment/ZEquipmentAxis">
+              <Attribute Name="DisplayName" AttributeDataType="xs:string">
+                <Value>AxisX</Value>
+              </Attribute>
+              <Attribute Name="Logger" AttributeDataType="xs:string" RefAttributeType="ZAttributeTypeLib/ZObjectRelation">
+                <Value>ZObjectLib/Common/Logger</Value>
+              </Attribute>
+              <Attribute Name="Simulated" AttributeDataType="xs:string">
+                <Value>Indeterminate</Value>
+              </Attribute>
+              <Attribute Name="SetLogger" AttributeDataType="xs:boolean">
+                <Description>Shall the Unit Logger be added to the I/O.</Description>
+                <DefaultValue>true</DefaultValue>
+              </Attribute>
+              <Attribute Name="Type" AttributeDataType="xs:string">
+                <Description>PLC Type of the Axis</Description>
+                <Value>AxisPlcOpenMc</Value>
+              </Attribute>
+              <Attribute Name="AxisTest" AttributeDataType="xs:boolean">
+                <Description>Should the Axis be added to the axisbridge for Axis Test purposes on an HMI</Description>
+                <DefaultValue>false</DefaultValue>
+                <Value>True</Value>
+              </Attribute>
+              <Attribute Name="AxisPlcOpenMc" AttributeDataType="xs:string" />
+              <Attribute Name="AxisStepperEL7031" AttributeDataType="xs:string">
+                <Attribute Name="EthercatSlave" AttributeDataType="" RefAttributeType="">
+                  <Description>Type description of the coresponding mirror object 'AxisStepperEL7031.EthercatSlave'</Description>
+                  <Value></Value>
+                  <Attribute Name="RefBaseClass" AttributeDataType="xs:string" RefAttributeType="ZAttributeTypeLib/ZObjectRelation">
+                    <Description>Objekttype als CAEX Pfad, welcher als Interface auf ein anderes Objekt in Form eines Mirrorobjektes für die Verwendung initialisiert werden kann.</Description>
+                    <Value>ZObjectLib/Unit/Equipment/ZEquipmentFieldbusDevice</Value>
+                  </Attribute>
+                  <Attribute Name="Type" AttributeDataType="xs:string">
+                    <Value>EthercatSlave</Value>
+                  </Attribute>
+                </Attribute>
+              </Attribute>
+              <RoleRequirements RefBaseRoleClassPath="ZRoleClassLib/ZObject" />
+              <RoleRequirements RefBaseRoleClassPath="ZRoleClassLib/ZEquipment" />
+            </InternalElement>
+            <InternalElement Name="Pen" ID="715ceec0-4c65-4cb8-884b-f54d8c494ea5" RefBaseSystemUnitPath="ZObjectLib/Unit/Equipment/ZEquipmentActuator">
+              <Attribute Name="DisplayName" AttributeDataType="xs:string">
+                <Value>Pen</Value>
+              </Attribute>
+              <Attribute Name="Logger" AttributeDataType="xs:string" RefAttributeType="ZAttributeTypeLib/ZObjectRelation">
+                <Value>ZObjectLib/Common/Logger</Value>
+              </Attribute>
+              <Attribute Name="Simulated" AttributeDataType="xs:string">
+                <Value>Indeterminate</Value>
+              </Attribute>
+              <Attribute Name="SetLogger" AttributeDataType="xs:boolean">
+                <Description>Shall the Unit Logger be added to the I/O.</Description>
+                <DefaultValue>true</DefaultValue>
+              </Attribute>
+              <Attribute Name="Type" AttributeDataType="xs:string">
+                <Description>PLC Type of the Actuator</Description>
+                <Value>ActuatorDigitalBiLsPlusMinus</Value>
+              </Attribute>
+              <Attribute Name="ActuatorTest" AttributeDataType="xs:boolean">
+                <Description>Should the Actuator be added to the acutatorbridge for Actuator Test purposes on an HMI</Description>
+                <DefaultValue>false</DefaultValue>
+                <Value>True</Value>
+              </Attribute>
+              <Attribute Name="IoTest" AttributeDataType="xs:boolean">
+                <Description>Should the IO of the actuator be added to the iobridge for I/O Test purposes on an HMI</Description>
+                <DefaultValue>false</DefaultValue>
+                <Value>True</Value>
+              </Attribute>
+              <Attribute Name="ActuatorDigital" AttributeDataType="xs:string">
+                <Attribute Name="MovePlusName" AttributeDataType="xs:string">
+                  <Value>Up</Value>
+                </Attribute>
+                <Attribute Name="MoveMinusName" AttributeDataType="xs:string">
+                  <Value>Down</Value>
+                </Attribute>
+                <Attribute Name="PlusName" AttributeDataType="xs:string">
+                  <Value>IsUp</Value>
+                </Attribute>
+                <Attribute Name="MinusName" AttributeDataType="xs:string">
+                  <Value>IsDown</Value>
+                </Attribute>
+                <Attribute Name="Plus" AttributeDataType="xs:string">
+                  <Description>Parameters for the Plus Position of the actuator</Description>
+                  <Attribute Name="StartDelay" AttributeDataType="xs:double">
+                    <Description>Delay before a move is started</Description>
+                    <Value>0</Value>
+                  </Attribute>
+                  <Attribute Name="Switch" AttributeDataType="xs:double">
+                    <Description>Time the output remains enabled during a move</Description>
+                    <Value>0.2</Value>
+                  </Attribute>
+                  <Attribute Name="Timeout" AttributeDataType="xs:double">
+                    <Description>Maximum time a move can take</Description>
+                    <Value>5</Value>
+                  </Attribute>
+                  <Attribute Name="EndDelay" AttributeDataType="xs:double">
+                    <Description>Delay after a move before it ends</Description>
+                    <Value>0</Value>
+                  </Attribute>
+                  <Attribute Name="Stop" AttributeDataType="xs:double">
+                    <Description>Delay after a stop has been triggered</Description>
+                    <Value>0</Value>
+                  </Attribute>
+                  <Attribute Name="Simulation" AttributeDataType="xs:double">
+                    <Description>Simulated move duration</Description>
+                    <Value>3</Value>
+                  </Attribute>
+                  <Attribute Name="SimulationUncertainty" AttributeDataType="xs:double">
+                    <Description>Random range of simulation time in percent</Description>
+                    <Value>10</Value>
+                  </Attribute>
+                </Attribute>
+                <Attribute Name="Minus" AttributeDataType="xs:string">
+                  <Description>Parameters for the Minus Position of the actuator</Description>
+                  <Attribute Name="StartDelay" AttributeDataType="xs:double">
+                    <Description>Delay before a move is started</Description>
+                    <Value>0</Value>
+                  </Attribute>
+                  <Attribute Name="Switch" AttributeDataType="xs:double">
+                    <Description>Time the output remains enabled during a move</Description>
+                    <Value>0.2</Value>
+                  </Attribute>
+                  <Attribute Name="Timeout" AttributeDataType="xs:double">
+                    <Description>Maximum time a move can take</Description>
+                    <Value>5</Value>
+                  </Attribute>
+                  <Attribute Name="EndDelay" AttributeDataType="xs:double">
+                    <Description>Delay after a move before it ends</Description>
+                    <Value>0</Value>
+                  </Attribute>
+                  <Attribute Name="Stop" AttributeDataType="xs:double">
+                    <Description>Delay after a stop has been triggered</Description>
+                    <Value>0</Value>
+                  </Attribute>
+                  <Attribute Name="Simulation" AttributeDataType="xs:double">
+                    <Description>Simulated move duration</Description>
+                    <Value>3</Value>
+                  </Attribute>
+                  <Attribute Name="SimulationUncertainty" AttributeDataType="xs:double">
+                    <Description>Random range of simulation time in percent</Description>
+                    <Value>10</Value>
+                  </Attribute>
+                </Attribute>
+              </Attribute>
+              <RoleRequirements RefBaseRoleClassPath="ZRoleClassLib/ZObject" />
+              <RoleRequirements RefBaseRoleClassPath="ZRoleClassLib/ZEquipment" />
+            </InternalElement>
+          </InternalElement>
           <RoleRequirements RefBaseRoleClassPath="AutomationMLExtendedRoleClassLib/Unit" />
         </InternalElement>
         <RoleRequirements RefBaseRoleClassPath="AutomationMLCSRoleClassLib/ControlEquipment/Controller/PLC" />

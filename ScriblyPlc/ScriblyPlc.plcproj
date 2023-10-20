@@ -108,6 +108,9 @@
     <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyActuator.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyActuatorPen.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ZApp\Unit\Scribly\_Equipment\ScriblyAxis.TcPOU">
       <SubType>Code</SubType>
     </Compile>
