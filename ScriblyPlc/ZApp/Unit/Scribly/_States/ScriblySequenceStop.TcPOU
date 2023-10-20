@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="ScriblySequenceStop" Id="{7d641f4f-31b2-4693-b78a-d201a83e91aa}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK ScriblySequenceStop EXTENDS ScriblySequence IMPLEMENTS ZCore.ISequence
@@ -20,11 +20,12 @@ REPEAT
     (* -------------------------------------------------------------------------------------------------------------------------------- *)
       IF _step.OnEntry()
       THEN
-        _timerSim.WaitAsync(5);
+        _actuator.Pen.UpAsync(THIS^);
+        _axis.AxisX.StopAsync(THIS^);
+        _axis.AxisY.StopAsync(THIS^);
 			END_IF
       
-      Await(_timerSim, nextStep:=ScriblyStep.StopEnd);
-      // _step.SetNext(index:=ScriblyStep.StopEnd);
+      Await3(_actuator.Pen, _axis.AxisX, _axis.AxisY, nextStep:=ScriblyStep.StopEnd);
 
     (* -------------------------------------------------------------------------------------------------------------------------------- *)
     ScriblyStep.StopEnd:

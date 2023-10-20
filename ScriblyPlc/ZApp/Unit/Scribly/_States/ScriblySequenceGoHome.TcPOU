@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="ScriblySequenceGoHome" Id="{b9e68848-6e34-449f-85c9-c7a943e2fd10}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK ScriblySequenceGoHome EXTENDS ScriblySequence IMPLEMENTS ZCore.ISequence
@@ -32,11 +32,33 @@ REPEAT
     (* -------------------------------------------------------------------------------------------------------------------------------- *)
       IF _step.OnEntry()
       THEN
-        _timer.WaitAsync(2);
+        ;
+			END_IF
+
+      _step.SetNext(index:=ScriblyStep.GoHomeMoveUp);
+
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    ScriblyStep.GoHomeMoveUp:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN
+        _actuator.Pen.UpAsync(THIS^);
+        _axis.AxisX.StopAsync(THIS^);
+        _axis.AxisY.StopAsync(THIS^);
 			END_IF
       
-      Await(_timer, nextStep:=ScriblyStep.GoHomeEnd);
-      // _step.SetNext(index:=ScriblyStep.GoHomeEnd);
+      Await(_actuator.Pen, nextStep:=ScriblyStep.GoHomeReferenceXY);
+
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    ScriblyStep.GoHomeReferenceXY:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN
+        _axis.AxisX.HomingAsync(THIS^);
+        _axis.AxisY.HomingAsync(THIS^);
+			END_IF
+      
+      Await3(_actuator.Pen, _axis.AxisX, _axis.AxisY, nextStep:=ScriblyStep.GoHomeEnd);
 
     (* -------------------------------------------------------------------------------------------------------------------------------- *)
     ScriblyStep.GoHomeEnd:
